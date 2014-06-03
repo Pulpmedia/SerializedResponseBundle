@@ -1,0 +1,5 @@
+services:
+    serializedresponse_annotation_driver:
+        class: Pulpmedia\SerializedResponseBundle\Annotation\Driver\AnnotationDriver #Point class
+        tags: [{name: kernel.event_listener, event: kernel.view, method: onKernelView},{name: kernel.event_listener, event: kernel.controller, method: onKernelController}]          #Point event
+        arguments: [@service_container,@annotation_reader] # Pass annotation_reader into constructor of our service
