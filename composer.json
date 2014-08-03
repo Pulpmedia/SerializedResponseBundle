@@ -14,7 +14,7 @@
 	],
 	"require": {
 		"php": ">=5.3.2",
-    "jms/serializer-bundle": "*"
+    "jms/serializer-bundle": "dev-master"
 	},
 	"target-dir": "Pulpmedia/SerializedResponseBundle",
 	"extra": {
