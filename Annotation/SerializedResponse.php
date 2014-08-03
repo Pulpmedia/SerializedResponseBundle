@@ -9,7 +9,7 @@ namespace Pulpmedia\SerializedResponseBundle\Annotation;
  class SerializedResponse
  {
 
-   public $responsetype = 'json';
+   public $format = 'json';
    public $status = 200;
 
  }

@@ -4,7 +4,7 @@ SerializedResponseBundle
 A simple bundle to provide an easy way to send out json/xml/yaml responses of serialized objects with annotations.
 
 ##Introduction
-This Bundle allows you to directly return serializable objects as from within a controller to receive a serialized response in json/xml/yaml format.
+This Bundle allows you to directly return serializable objects as from within a controller to receive a serialized response in json/xml/yaml format. It requires ``jms/serializer-bundle``.
 
 ##Installation
 ###Step 1
@@ -24,6 +24,7 @@ Enable the bundle in the kernel:
 public function registerBundles()
 {
     $bundles = array(
+        new JMS\SerializerBundle\JMSSerializerBundle(), //If you have not already done this already
         // ...
         new Pulpmedia\SerializedResponseBundle\PulpmediaSerializedResponseBundle(),
     );
@@ -45,7 +46,7 @@ class MyController extents Controller{
 
   /**
    * @Route("/get/{id}")
-   * @SerializedResponse(responsetype="json/xml/yaml")
+   * @SerializedResponse(format="json/xml/yaml")
    */
   public function getAction($id){
     $em = $this->getDoctrine()->getManager();

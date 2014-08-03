@@ -35,7 +35,7 @@ class AnnotationDriver{
         $method = $object->getMethod($controller[1]);
 
         foreach ($this->reader->getMethodAnnotations($method) as $configuration) { //Start of annotations reading
-            if(isset($configuration->responsetype)){//Found our annotation
+            if(isset($configuration->format)){//Found our annotation
 							$this->configuration = $configuration;
                 $this->isSerializedResponse = true;
 
@@ -51,8 +51,8 @@ class AnnotationDriver{
 				if($this->isSerializedResponse){
 
                 $serializer = $this -> container -> get('jms_serializer');
-								$responsetype= $this->configuration->responsetype;
-								$response = $serializer -> serialize($parameters, $responsetype);
+								$format= $this->configuration->format;
+								$response = $serializer -> serialize($parameters, $format);
 								$status = $this->configuration->status;
 								$event->setResponse(new Response($response,$status, array('Content-Type' => 'application/json')));
 
